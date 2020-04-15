@@ -4,12 +4,13 @@
 #         self.val = x
 #         self.next = None
 
-class Solution:
-    def middleNode(self, head: ListNode) -> ListNode:
-        ## Use two pointers to get to middle
-        slow = fast = head
-        while (fast is not None and
-               fast.next is not None):
-            slow = slow.next
-            fast = fast.next.next
-        return slow
+def middleNode(self, head: ListNode) -> ListNode:
+    ## Use two pointers to get to middle
+    slow = fast = head
+    while (fast is not None and
+           fast.next is not None):
+        slow = slow.next
+        fast = fast.next.next
+
+    is_even = fast is None
+    return (slow, slow.next) if is_even else (slow,)
